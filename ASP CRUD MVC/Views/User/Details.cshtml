@@ -1,0 +1,103 @@
+﻿@model ASP_CRUD_MVC.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .details-section {
+        margin-bottom: 20px;
+    }
+
+    .dl-horizontal dt {
+        width: 150px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 180px; /* Adjust to align with dt */
+        margin-bottom: 10px;
+    }
+
+    .action-links a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<div class="container">
+    <h2>Details</h2>
+
+    <div class="details-section">
+        <h4>User Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+        </dl>
+    </div>
+
+    <p class="action-links">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+    </p>
+</div>

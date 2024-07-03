@@ -1,0 +1,124 @@
+﻿@model ASP_CRUD_MVC.Models.User
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    body {
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif; /* Set your preferred font family */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+    }
+
+    .signup-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: 30px auto; /* Center the box vertically and horizontally */
+        text-align: center; /* Center align the content */
+    }
+
+    .form-group {
+        text-align: left; /* Align form labels to the left */
+        margin-bottom: 15px; /* Space between form groups */
+    }
+
+    .form-control {
+        width: 100%; /* Full width input fields */
+        max-width: 100%; /* Ensure maximum width */
+        display: inline-block; /* Display inputs in line */
+    }
+
+    .btn-default {
+        width: 100%; /* Full width button */
+        max-width: 100%; /* Ensure maximum width */
+        margin-top: 10px; /* Space above the button */
+        text-decoration: none; /* Remove underline */
+        background-color: lightgreen; /* Default button background color */
+        color: #fff; /* Button text color */
+        border: none; /* Remove border */
+        padding: 10px; /* Padding inside the button */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Cursor style */
+        text-align: center; /* Center the text inside the button */
+    }
+
+        .btn-default:hover {
+            background-color: mediumspringgreen; /* Darker background color on hover */
+        }
+</style>
+
+<div class="signup-box">
+    <h2>Signup</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Signup" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    @Html.ActionLink("Show List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
